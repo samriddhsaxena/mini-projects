@@ -1,0 +1,1 @@
+This folder consists of IT Solutions Website made using pure HTML.
