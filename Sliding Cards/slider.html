@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img src="https://www.svgrepo.com/show/335973/arrow-circle-left.svg" id="backBtn">
+        <div class="gallery">
+            <div>
+                <span><img src="https://cdn.pixabay.com/photo/2023/06/01/14/11/ai-generated-8033671_960_720.png" alt=""></span>
+                <span><img src="https://www.piarautio.com/wp-content/uploads/2020/06/091_poika_hattu_samettitakki-819x1024.jpg" alt=""></span>
+                <span><img src="https://thumbs.dreamstime.com/b/fashionable-little-boy-hat-fashion-child-portrait-fashionable-little-boy-hat-fashion-child-portrait-elegant-kid-tie-132739427.jpg" alt=""></span>
+        </div>
+        <div>
+            <span><img src="https://cdn.pixabay.com/photo/2023/06/14/18/29/ai-generated-8063835_1280.jpg" alt=""></span>
+            <span><img src="https://cdn.pixabay.com/photo/2023/09/09/15/20/ai-generated-8243328_1280.jpg" alt=""></span>
+            <span><img src="https://cdn.pixabay.com/photo/2023/04/14/19/14/ai-generated-7925785_1280.jpg" alt=""></span>
+        </div>
+        <div>
+            <span><img src="https://cdn.pixabay.com/photo/2023/06/06/10/00/ai-generated-8044309_1280.jpg" alt=""></span>
+            <span><img src="https://th.bing.com/th/id/OIP.Y9d4u-Nc-kdHCBxzxfWSxQAAAA?rs=1&pid=ImgDetMain" alt=""></span>
+            <span><img src="https://img.freepik.com/premium-photo/old-woman-face-photo-ai-generated_980993-3154.jpg" alt=""></span>
+    </div>
+    </div>
+    <img src="https://www.svgrepo.com/show/335974/arrow-circle-right.svg" id="nextBtn">
+</div>
+<script>
+    let scrollContainer = document.querySelector(".gallery");
+    let backBtn = document.querySelector("#backBtn");
+    let nextBtn = document.querySelector("#nextBtn");
+
+    scrollContainer.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY;
+        scrollContainer.style.scrollBehaviour = "auto";
+    });
+
+    nextBtn.addEventListener("click", () => {
+        scrollContainer.style.scrollBehaviour = "smooth";
+        scrollContainer.scrollLeft += 900;
+    });
+    backBtn.addEventListener("click", () => {
+        scrollContainer.style.scrollBehaviour = "smooth";
+        scrollContainer.scrollLeft -= 300;
+    });
+
+</script>
+</body>
+</html>
