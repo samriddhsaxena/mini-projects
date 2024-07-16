@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <marquee behavior="scroll" direction="right">Image Slider</marquee>
+    <main>
+        <img src="https://picsum.photos/id/236/1000/400" class="slide" alt="">
+        <img src="https://picsum.photos/id/237/1000/400" class="slide" alt="">
+        <img src="https://picsum.photos/id/238/1000/400" class="slide" alt="">
+        <img src="https://picsum.photos/id/239/1000/400" class="slide" alt="">
+    </main>
+
+    <button id="prevBtn">Prev</button>
+    <button id="nextBtn">Next</button>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        var counter = 0;
+
+        slides.forEach((slide, index) => {
+            slide.style.left = `${index * 100}%`;
+        });
+
+        const nextBtn = document.querySelector('#nextBtn');
+        const prevBtn = document.querySelector('#prevBtn');
+        nextBtn.addEventListener('click', () => {
+            counter++;
+            carousel();
+        });
+        prevBtn.addEventListener('click', () => {
+            counter--;
+            carousel();
+        });
+        function carousel() {
+            if (counter === slides.length) {
+                counter = 0;
+            }
+            if (counter < 0) {
+                counter = slides.length - 1;
+            }
+            slides.forEach((slide) => slide.style.transform = 'translateX(-' + counter * 100 + '%)');
+        }
+    </script>
+</body>
+</html>
